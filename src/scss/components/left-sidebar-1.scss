@@ -1,0 +1,53 @@
+.left-sidebar {
+  &.left-sidebar-1 {
+    > div {
+      width: calc(16rem + 24px);
+    }
+    .list-item {
+      @apply rounded-lg py-3 px-2 w-full flex items-center justify-start;
+      [data-direction="ltr"] & {
+        .badge {
+          @apply mr-4 ml-auto #{!important};
+        }
+      }
+      [data-direction="rtl"] & {
+        .badge {
+          @apply ml-4 mr-auto #{!important};
+        }
+      }
+    }
+
+    .accordion {
+      max-height: 0;
+      transition: max-height 0.35s ease-in-out;
+      overflow: hidden;
+      &.open {
+        max-height: 100vh;
+      }
+    }
+
+    .right-arrow:before {
+      font-family: "simple-line-icons";
+      content: "\e606";
+      position: absolute;
+      top: 15px;
+      font-size: 10px;
+      transform: rotate(-360deg);
+      transition: transform 0.3s ease-in-out;
+    }
+    .right-arrow.is-open:before {
+      transform: rotate(90deg);
+    }
+    [data-direction="ltr"] & {
+      .right-arrow:before {
+        right: 8px;
+      }
+    }
+    [data-direction="rtl"] & {
+      .right-arrow:before {
+        left: 8px;
+        transform: rotate(-540deg);
+      }
+    }
+  }
+}

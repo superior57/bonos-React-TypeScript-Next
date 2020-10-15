@@ -1,0 +1,95 @@
+@import "../variables";
+.table {
+    @apply min-w-full table-auto;
+    &.no-border thead tr th,
+    &.no-border tbody tr td {
+        @apply border-0 border-none;
+    }
+    thead tr th {
+        @apply px-3 py-2 border-b text-xs leading-4 font-medium uppercase tracking-wider;
+    }
+    tbody tr td {
+        @apply px-3 py-2 border-b whitespace-no-wrap;
+    }
+    &.table-sm {
+        thead tr th {
+            @apply px-1 py-0;
+        }
+        tbody tr td {
+            @apply px-1 py-0;
+        }
+    }
+    &.table-lg {
+        thead tr th {
+            @apply px-6 py-3;
+        }
+        tbody tr td {
+            @apply px-6 py-3;
+        }
+    }
+}
+
+[data-direction="ltr"] {
+    .table {
+        @apply text-left;
+        thead tr th,
+        tbody tr td {
+            @apply text-left;
+        }
+    }
+}
+
+[data-direction="rtl"] {
+    .table {
+        @apply text-right;
+        thead tr th,
+        tbody tr td {
+            @apply text-right;
+        }
+    }
+}
+
+@each $key,
+$value in $palettes {
+    [data-background="#{$key}"] {
+        .table {
+            @apply #{map-get($value, "table-background-odd")};
+            &.striped {
+                tbody tr:nth-child(odd) td {
+                    @apply #{map-get($value, "table-background-odd")};
+                }
+                tbody tr:nth-child(even) td {
+                    @apply #{map-get($value, "table-background-even")};
+                }
+            }
+            thead tr th {
+                @apply #{map-get($value, "table-border-color")};
+                @apply #{map-get($value, "table-th-color")};
+            }
+            tbody tr td {
+                @apply #{map-get($value, "table-border-color")};
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .table-row-header {
+        position: absolute;
+        width: calc(100% - 150px);
+        display: flex;
+        justify-content: space-between;
+    }
+    .table-row-body {
+        margin-top: 100px;
+    }
+    .category-item {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1580px) {
+    .price-category {
+        display: flex;
+    }
+}

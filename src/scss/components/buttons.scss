@@ -1,0 +1,127 @@
+@import "../variables";
+
+a,
+button {
+  @apply outline-none;
+}
+a:hover,
+a:active,
+a:focus,
+button:hover,
+button:active,
+button:focus {
+  @apply outline-none;
+}
+
+/*colors*/
+.btn-transparent {
+  @apply bg-transparent;
+}
+
+.btn-black {
+  @apply bg-black text-white;
+}
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+  @apply bg-black text-white;
+}
+.btn-white {
+  @apply bg-white text-gray-900;
+}
+.btn-white:hover,
+.btn-white:active,
+.btn-white:focus {
+  @apply bg-gray-100 text-gray-900;
+}
+@each $color in $colors {
+  .btn-#{"" + $color} {
+    @apply bg-#{"" + $color}-500 text-white;
+  }
+  .btn-#{"" + $color}:hover,
+  .btn-#{"" + $color}:active,
+  .btn-#{"" + $color}:focus {
+    @apply bg-#{"" + $color}-600 text-white;
+  }
+  .btn-outlined-#{"" + $color} {
+    @apply bg-transparent border text-#{"" + $color}-500 border-#{"" + $color}-500 #{!important};
+  }
+  .btn-outlined-#{"" + $color}:hover,
+  .btn-outlined-#{"" + $color}:active,
+  .btn-outlined-#{"" + $color}:focus {
+    @apply text-#{"" + $color}-600 border-#{"" + $color}-600 #{!important};
+  }
+  .btn-flat-#{"" + $color} {
+    @apply bg-transparent text-#{"" + $color}-500 #{!important};
+  }
+}
+
+.btn {
+  @apply font-bold uppercase;
+  /*button sizes*/
+  &.btn-sm {
+    @apply text-xxs px-2 py-1;
+  }
+  &.btn-default {
+    @apply text-xs px-4 py-2;
+  }
+  &.btn-lg {
+    @apply text-base px-6 py-3;
+  }
+  /*rounded, outlined, flat, raised, icon*/
+  &.btn-rounded {
+    @apply rounded-lg;
+  }
+  &.btn-flat {
+    @apply bg-transparent;
+  }
+  &.btn-outlined {
+    @apply bg-transparent border border-current;
+  }
+  &.btn-raised {
+    @apply shadow;
+  }
+  &.btn-icon {
+    @apply flex flex-row items-center justify-center;
+  }
+  &.btn-block {
+    @apply w-full;
+  }
+  &.btn-circle {
+    @apply text-xs h-8 w-8 rounded-full inline-flex items-center justify-center;
+    @apply p-0 #{!important};
+    &.btn-circle-sm {
+      @apply text-xxs h-6 w-6 inline-flex items-center justify-center;
+    }
+    &.btn-circle-lg {
+      @apply text-base h-12 w-12 inline-flex items-center justify-center;
+    }
+  }
+}
+
+@each $key, $value in $palettes {
+  [data-background="#{$key}"] {
+    .btn {
+      &.btn-default-color {
+        @apply #{map-get($value, "background-color")};
+        &:hover {
+          @apply #{map-get($value, "hover-background-color")};
+        }
+      }
+      &.btn-flat:hover,
+      &.btn-flat:active,
+      &.btn-flat:focus {
+        @apply #{map-get($value, "hover-background-color")} #{!important};
+      }
+    }
+  }
+}
+
+.btn-group {
+  > .btn {
+    @apply border-r-0 #{!important};
+    &:last-child {
+      @apply border-r #{!important};
+    }
+  }
+}

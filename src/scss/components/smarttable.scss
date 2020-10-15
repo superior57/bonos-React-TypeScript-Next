@@ -1,0 +1,39 @@
+.category-item {
+    min-width: 80px;
+}
+
+.drag-up {
+    animation: dragup ease 0.2s 1;
+    animation-fill-mode: forwards;
+    border: solid 2px #cccccc;
+}
+
+.drag-down {
+    animation: dragdown ease 0.2s 1;
+    animation-fill-mode: forwards;
+    border: solid 2px #cccccc;
+}
+
+@keyframes dragup {
+    from {
+        margin-top: 10px;
+    }
+    to {
+        margin-top: 150px;
+    }
+}
+
+@keyframes dragdown {
+    from {
+        margin-bottom: 10px;
+        margin-top: 150px;
+    }
+    to {
+        margin-bottom: 150px;
+        margin-top: 10px;
+    }
+}
+
+ul {
+    list-style: none
+}

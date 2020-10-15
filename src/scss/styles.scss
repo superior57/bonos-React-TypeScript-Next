@@ -1,0 +1,333 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-black-80 {
+	background-color: #1a202c;
+}
+
+.react-datepicker__input-container input {
+	&:focus {
+		outline: none;
+	}
+}
+
+.checkbox-container {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 14px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 22px;
+	width: 22px;
+	background-color: white;
+	border-radius: 7px;
+}
+
+.checkmark-dark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 22px;
+	width: 22px;
+	background-color: #cbd5e0;
+	border-radius: 7px;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+	background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+	background-color: #48bb78;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+	display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+	left: 9px;
+	top: 5px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+
+//@at-root
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark-dark {
+	background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark-dark {
+	background-color: #48bb78;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark-dark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark-dark:after {
+	display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark-dark:after {
+	left: 9px;
+	top: 5px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+
+[data-direction="ltr"] {
+	* {
+		direction: ltr;
+	}
+	.children-x-1 > * {
+		margin-right: 0.25rem;
+	}
+	.children-x-2 > * {
+		margin-right: 0.5rem;
+	}
+	.children-x-4 > * {
+		margin-right: 1rem;
+	}
+}
+[data-direction="rtl"] {
+	* {
+		direction: rtl;
+	}
+	.children-x-1 > * {
+		margin-left: 0.25rem;
+	}
+	.children-x-2 > * {
+		margin-left: 0.5rem;
+	}
+	.children-x-4 > * {
+		margin-left: 1rem;
+	}
+}
+
+/**
+ * base styles
+ */
+h1 {
+	@apply text-5xl;
+}
+h2 {
+	@apply text-4xl;
+}
+h3 {
+	@apply text-3xl;
+}
+h4 {
+	@apply text-2xl;
+}
+h5 {
+	@apply text-xl;
+}
+h6 {
+	@apply text-lg;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@apply font-poppins;
+}
+
+code {
+	@apply font-mono p-1 inline rounded font-bold;
+}
+pre {
+	@apply font-mono p-2 block rounded font-bold;
+}
+
+html {
+	@apply font-sans;
+}
+
+body {
+	@apply font-sans antialiased text-sm;
+}
+
+.w-96 {
+	width: 24rem;
+}
+
+.link {
+	@apply text-blue-600;
+}
+
+.raised {
+	@apply shadow;
+}
+
+/**
+ * hide scrollbars
+ */
+::-webkit-scrollbar {
+	display: none;
+	width: 0 !important;
+}
+.disable-scrollbars {
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* IE 10+ */
+}
+
+/**
+ * required to avoid flexbox issues in nextjs apps
+ */
+#__next {
+	width: 100%;
+	min-width: 100%;
+	height: 100%;
+	min-height: 100%;
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
+	position: relative;
+}
+
+.homepage {
+	[data-direction="ltr"] & {
+		.homepage-navbar-actions {
+			@apply ml-auto;
+		}
+	}
+	[data-direction="rtl"] & {
+		.homepage-navbar-actions {
+			@apply mr-auto;
+		}
+	}
+}
+
+
+.dropbtn {
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	// border: none;
+	cursor: pointer;
+  }
+  
+  .btn-dropdown {
+	position: relative;
+	display: inline-block;
+  }
+  
+  .btn-dropdown-content {
+	display: block;
+	position: absolute;
+	min-width: 160px;
+	z-index: 1;
+  }
+  
+  .btn-dropdown-content a {
+	color: #FFF;
+	padding: 5px 16px;
+	text-decoration: none;
+	display: block;
+  }
+
+
+  .radio{
+	color: #FFF;
+	display: flex;
+	position: relative;
+	width: 100%;
+  }
+  
+  .radio input[type=radio]{
+	position: absolute;
+	visibility: hidden;
+  }
+  
+  .radio label{
+	position: relative;
+	z-index: 9;
+	cursor: pointer;
+	-webkit-transition: all 0.25s linear;
+  }
+  
+  .radio:hover label{
+	  color: #FFFFFF;
+  }
+  
+  .radio .check{
+	display: block;
+	position: absolute;
+	background-color: #FFF;
+	border-radius: 100%;
+	height: 20px;
+	width: 20px;
+	top: 8px;
+	left: 20;
+	  z-index: 5;
+	  transition: border .25s linear;
+	  -webkit-transition: border .25s linear;
+  }
+  
+  .radio:hover .check {
+	border: 3px solid #FFFFFF;
+	background-color: #F56565;
+  }
+  
+  
+  input[type=radio]:checked ~ .check {
+	border: 3px solid #fff;
+	background-color: #F56565;
+  }
+  

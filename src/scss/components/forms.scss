@@ -1,0 +1,74 @@
+@import "../variables";
+
+.form-icon {
+  @apply h-4 w-4 stroke-current absolute bottom-0;
+  margin-bottom: 10px;
+  &.form-success {
+    @apply text-red-500;
+  }
+  &.form-error {
+    @apply text-green-500;
+  }
+  [data-direction="ltr"] & {
+    @apply right-0 mr-2;
+  }
+  [data-direction="rtl"] & {
+    @apply left-0 ml-2;
+  }
+}
+
+@each $key, $value in $palettes {
+  [data-background="#{$key}"] {
+    .form-input,
+    .form-textarea,
+    .form-multiselect,
+    .form-select {
+      @apply #{map-get($value, "background-color")};
+      @apply #{map-get($value, "border-color")};
+      @apply #{map-get($value, "text-color")};
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder,
+    .form-multiselect::placeholder,
+    .form-select::placeholder {
+      color: #{map-get($value, "placeholder-color")};
+    }
+    .form-radio,
+    .form-checkbox {
+      //@apply #{map-get($value, "background-color")};
+      //@apply #{map-get($value, "border-color")};
+      //@apply text-blue-500;
+    }
+  }
+}
+
+/*
+.form-checkbox {
+  color: #4299e1;
+  background-color: #fff;
+  border-color: #e2e8f0;
+}
+.form-checkbox:checked {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
+  border-color: transparent;
+  background-color: currentColor;
+}
+.form-checkbox:focus {
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+  border-color: #63b3ed;
+}
+.form-radio {
+  color: #4299e1;
+  background-color: #fff;
+  border-color: #e2e8f0;
+}
+.form-radio:checked {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+  border-color: transparent;
+  background-color: currentColor;
+}
+.form-radio:focus {
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+  border-color: #63b3ed;
+}
+*/
