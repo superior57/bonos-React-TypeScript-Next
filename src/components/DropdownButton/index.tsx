@@ -1,9 +1,10 @@
 import { useState, useEffect, useReducer, useRef } from "react";
 import { useSelector } from "react-redux";
+import { RootState } from "src/store";
 
 const DropdownButton = ({children, buttonContent, style={}}) => {
 	const [isShowMenu, setIsShowDropmenu] = useState(false);
-	const theme = useSelector(state => state.theme.name);
+	const theme = useSelector((state: RootState) => state.theme.name);
 	const dropdown = useRef(null);
 	
 	useEffect(() => {
