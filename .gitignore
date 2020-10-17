@@ -126,3 +126,7 @@ sketch
 
 # End of https://www.toptal.com/developers/gitignore/api/node,react
 dummy-data-blotter.json
+
+# lock files.
+package-lock.json
+yarn.lock
