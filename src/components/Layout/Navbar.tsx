@@ -9,7 +9,7 @@ import { darkTheme, lightTheme, setCollapsed } from "src/store/theme";
 import { RootState } from "src/store";
 
 export const Navbar = () => {
-  const theme = useTypedSelector((state) => state.theme);
+  const theme = useTypedSelector((state : RootState) => state.theme);
   const state = useSelector((state: RootState) => state);
 
   const { collapsed } = state.theme.palettes;

@@ -5,7 +5,7 @@ import { random } from "src/functions/numbers";
 
 const Chart = ({ height, labels }) => {
 	const { palettes, collapsed, layout } = useSelector(
-		(state) => ({
+		(state : RootState) => ({
 			palettes: state.palettes,
 			collapsed: state.collapsed,
 			layout: state.layout,

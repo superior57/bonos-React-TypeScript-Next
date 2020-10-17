@@ -14,7 +14,7 @@ const Widget = ({
 	const theme = useSelector((state: RootState) => state.theme.name);
 
 	const { palettes, collapsed, layout } = useSelector(
-		(state) => ({
+		(state: RootState ) => ({
 			palettes: state.palettes,
 			collapsed: state.collapsed,
 			layout: state.layout,

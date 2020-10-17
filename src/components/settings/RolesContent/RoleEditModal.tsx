@@ -16,7 +16,7 @@ const RoleEditModal = ({ closeModal, data: { name, description }, title }) => {
 	};
 
 	const saveHandler = () => {
-		console.log(state);
+		// console.log(state);
 		closeModal();
 	};
 
