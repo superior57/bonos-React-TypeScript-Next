@@ -11,10 +11,11 @@ import { theme } from "tailwind.config";
 import { isMobile } from "react-device-detect";
 import { setCollapsed } from "src/store/theme";
 import { AppDispatch } from "src/store";
+import { RootState } from "src/store";
 
 export const SideBar = () => {
 	const leftSidebarRef = React.createRef<HTMLDivElement>();
-	const state = useSelector(state => state);
+	const state = useSelector((state: RootState) => state);
 	const screenMD = Number((theme.screens.md).replace("px", ""));
 	const dispatch : AppDispatch = useDispatch();
 

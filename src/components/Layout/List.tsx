@@ -3,10 +3,11 @@ import Link from "next/link";
 import Item from "./Item";
 import { useSelector } from "react-redux";
 import { isMobile } from "react-device-detect";
+import { RootState } from "src/store";
 
 export const List = ({ items }) => {
   const [hidden, setHidden] = useState(true);
-  const {collapsed} = useSelector(state => state.theme.palettes);
+  const {collapsed} = useSelector((state:RootState) => state.theme.palettes);
 
   return (
     <ul className={`list-none ${!isMobile ? !collapsed ? "px-4" : "px-3" : "px-4"} `}>

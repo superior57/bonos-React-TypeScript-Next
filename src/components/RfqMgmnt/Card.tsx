@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
+import { RootState } from "src/store";
 
 const CardRFQ = ({data={}}) => {
-	const theme = useSelector(state => state.theme.name);
+	const theme = useSelector((state: RootState) => state.theme.name);
 	const { headerColor, title, buttonColor, values } = data;
 
 	return <>

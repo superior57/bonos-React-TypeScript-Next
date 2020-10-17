@@ -6,8 +6,9 @@ import ExpandLayout from "src/components/Layout/ExpandLayout";
 import Modal from "react-modal";
 import CloseIcon from "src/icons/close";
 
+
 const ModalContent1 = ({closeModal, title}) => {
-	const theme = useSelector(state => state.theme.name);
+	const theme = useSelector((state: RootState) => state.theme.name);
 
 
 	const datas = [
@@ -180,7 +181,7 @@ const ModalContent1 = ({closeModal, title}) => {
 }
 
 const ModalContentBuy = ({closeModal, title}) => {
-	const theme = useSelector(state => state.theme.name);
+	const theme = useSelector((state: RootState) => state.theme.name);
 
 
 	const datas = [

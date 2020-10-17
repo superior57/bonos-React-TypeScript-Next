@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
 import ExpandLayout from "src/components/Layout/ExpandLayout";
+import { RootState } from "src/store";
 
 const CashFlows = () => {
-	const theme = useSelector(state => state.theme.name);
+	const theme = useSelector((state: RootState) => state.theme.name);
 
 	return (
 		<ExpandLayout title="Cash Flows">

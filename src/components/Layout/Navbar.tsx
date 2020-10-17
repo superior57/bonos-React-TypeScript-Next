@@ -6,10 +6,11 @@ import { Search } from "./Search";
 import { useSelector, useDispatch } from "react-redux";
 import { useTypedSelector, AppDispatch } from "src/store";
 import { darkTheme, lightTheme, setCollapsed } from "src/store/theme";
+import { RootState } from "src/store";
 
 export const Navbar = () => {
   const theme = useTypedSelector((state) => state.theme);
-  const state = useSelector(state => state);
+  const state = useSelector((state: RootState) => state);
 
   const { collapsed } = state.theme.palettes;
   // const [currentheme, setTheme] = useState("light");
