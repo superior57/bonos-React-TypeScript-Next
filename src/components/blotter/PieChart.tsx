@@ -4,14 +4,7 @@ import { getColor } from "src/functions/colors";
 import { random } from "src/functions/numbers";
 
 const Chart = ({ height, labels }) => {
-	const { palettes, collapsed, layout } = useSelector(
-		(state : RootState) => ({
-			palettes: state.palettes,
-			collapsed: state.collapsed,
-			layout: state.layout,
-		}),
-		shallowEqual
-	);
+	const { palettes, collapsed, layout } = useSelector((state: RootState) => state.theme.name);
 	const { background } = { ...palettes };
 
 	const key = `${layout}-${collapsed}-${background}`;

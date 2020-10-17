@@ -13,14 +13,7 @@ const Widget = ({
 }) => {
 	const theme = useSelector((state: RootState) => state.theme.name);
 
-	const { palettes, collapsed, layout } = useSelector(
-		(state: RootState ) => ({
-			palettes: state.palettes,
-			collapsed: state.collapsed,
-			layout: state.layout,
-		}),
-		shallowEqual
-	);
+	const { palettes, collapsed, layout } = useSelector((state: RootState) => state.theme.name);
 	const { background } = { ...palettes };
 	const isDark = [
 		"bg-gray-800",
